@@ -63,7 +63,7 @@ if (cluster.isMaster) {
 	var worker_id = cluster.worker.id;
 	var master_id;
 
-	var server = app.listen(port, function() {
+	var server = app.listen(3000, function() {
 		console.log('Express 서버가 ' + server.address().port + '번 포트에서 Listen중입니다.');
 	});
 
@@ -76,7 +76,7 @@ if (cluster.isMaster) {
 	});
 
 	app.get('/', function(req, res) {
-		res.send('안녕하세요 저는<br>[' + master_id + ']서버의<br>워커 [' + cluster.worker.id + '] 입니다.');
+		res.send('안녕하세요 저는<br>[' + master_id + ']서버의<br>워커 [' + cluster.worker.id + '] 입니다.ㅎㅎㅎㅎ');
 	});
 	//워커 킬링 테스트
 	app.get('/kill', function(req, res) {

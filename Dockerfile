@@ -2,7 +2,7 @@
 FROM node:8
 
 #Dockerfile 을 생성/관리하는 사람
-MAINTAINER react.coworks <react.coworks@gmail.com>
+# MAINTAINER react.coworks <react.coworks@gmail.com>
 
 # /var/www/celuv 디렉토리 생성
 RUN mkdir -p /var/www/celuv
