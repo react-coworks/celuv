@@ -4,11 +4,11 @@ FROM node:8
 #Dockerfile 을 생성/관리하는 사람
 MAINTAINER react.coworks <react.coworks@gmail.com>
 
-# /app 디렉토리 생성
+# /var/www/celuv 디렉토리 생성
 RUN mkdir -p /var/www/celuv
-# /app 디렉토리를 WORKDIR 로 설정
+# /var/www/celuv 디렉토리를 WORKDIR 로 설정
 WORKDIR /var/www/celuv
-# 현재 Dockerfile 있는 경로의 모든 파일을 /app 에 복사
+# 현재 Dockerfile 있는 경로의 모든 파일을 /var/www/celuv 에 복사
 ADD . /var/www/celuv
 # npm install 을 실행
 RUN npm install
@@ -17,7 +17,7 @@ RUN npm install
 ENV NODE_ENV development
 
 #가상 머신에 오픈할 포트
-EXPOSE 3000 80
+EXPOSE 3000
 
 #컨테이너에서 실행될 명령을 지정
 CMD ["npm", "start"]
