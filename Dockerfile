@@ -6,6 +6,7 @@ FROM node:8
 
 # /var/www/celuv 디렉토리 생성
 RUN mkdir -p /var/www/celuv
+
 # /var/www/celuv 디렉토리를 WORKDIR 로 설정
 WORKDIR /var/www/celuv
 # 현재 Dockerfile 있는 경로의 모든 파일을 /var/www/celuv 에 복사
