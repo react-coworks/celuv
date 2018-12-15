@@ -68,16 +68,20 @@ if (cluster.isMaster) {
 	});
 
 	//마스터에게 master_id 요청
-	process.send({ worker_id: worker_id, cmd: 'MASTER_ID' });
-	process.on('message', function(msg) {
-		if (msg.cmd === 'MASTER_ID') {
-			master_id = msg.master_id;
-		}
-	});
+	// process.send({ worker_id: worker_id, cmd: 'MASTER_ID' });
+	// process.on('message', function(msg) {
+	// 	if (msg.cmd === 'MASTER_ID') {
+	// 		master_id = msg.master_id;
+	// 	}
+	// });
 
 	app.get('/', function(req, res) {
-		res.send('안녕하세요 저는<br>[' + master_id + ']서버의<br>워커 [' + cluster.worker.id + '] 입니다.');
+		res.send('테스트페이지');
 	});
+
+	// app.get('/', function(req, res) {
+	// 	res.send('안녕하세요 저는<br>[' + master_id + ']서버의<br>워커 [' + cluster.worker.id + '] 입니다.');
+	// });
 	//워커 킬링 테스트
 	app.get('/kill', function(req, res) {
 		cluster.worker.kill();
