@@ -49,11 +49,11 @@ if (cluster.isMaster) {
 	//워커가 죽었을 경우 다시 살림
 	cluster.on('exit', function(worker) {
 		console.log('워커 사망 - 사망한 워커 ID : [' + worker.process.pid + ']');
-		console.log('다른 워커를 생성합니다.');
+		// console.log('다른 워커를 생성합니다.');
 
-		var worker = cluster.fork();
+		// var worker = cluster.fork();
 		//워커의 요청메시지 리스너
-		worker.on('message', workerMsgListener);
+		// worker.on('message', workerMsgListener);
 	});
 
 	//워커일 경우
