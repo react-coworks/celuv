@@ -1,8 +1,13 @@
 #어떤 이미지로부터 새로운 이미지를 생성할지를 지정
-FROM node:8
+FROM jenkins/jenkins
 
 #Dockerfile 을 생성/관리하는 사람
 # MAINTAINER react.coworks <react.coworks@gmail.com>
+USER root
+RUN apt-get update && apt-get install -y
+RUN apt-get install nginx
+# nginx.conf는 호스트에 보관하며 VOLUME 으로 호스트경로를 지정하고 ADD로 가져온다.
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
 
 # /var/www/celuv 디렉토리 생성
 RUN mkdir -p /var/www/celuv
